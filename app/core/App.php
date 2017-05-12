@@ -10,7 +10,11 @@ class App {
 	protected $method     = 'index';
 	protected $params     = [];
 
+  /**
+   *
+   */
 	public __construct() {
+
     $url = $this -> parseUrl();
 
     if (file_exists('../app/controllers/' . $url[0] . '.php')) {
@@ -19,7 +23,6 @@ class App {
     }
 
     require_once '../app/controllers/' . $this -> controller . '.php';
-
     $this -> controller = new $this -> controller;
 
     if (isset($url[1])) {
@@ -35,6 +38,9 @@ class App {
 
 	}
 
+  /**
+   *
+   */
 	public function parseUrl() {
 
     $get_url = $_GET['url'];
