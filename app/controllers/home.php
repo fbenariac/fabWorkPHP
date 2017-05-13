@@ -2,11 +2,15 @@
 
 class Home extends Controller {
   
-  public function index($name = '') {
-    $user = $this -> model('User');
-    $user -> name = $name;
+  public function index($id = '') {
 
-    $this -> view('home/index', ['name' => $user -> name]);
+  	$user = $this -> model('User');
+    $u    = $user -> getUserById($id);
+
+    $this -> view('home/index', [
+    	'name' => $u['username']
+    ]);
+
   }
 
 }
