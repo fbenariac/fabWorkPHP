@@ -13,7 +13,7 @@ class App {
   /**
    *
    */
-	public __construct() {
+	public function __construct() {
 
     $url = $this -> parseUrl();
 
