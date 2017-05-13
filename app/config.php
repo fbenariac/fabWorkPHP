@@ -2,6 +2,6 @@
 
 // Define configuration
 define("DB_HOST", "localhost");
-define("DB_USER", "devuser");
-define("DB_PASS", "devpswd");
-define("DB_NAME", "fabworkphptest");
+define("DB_USER", "username");
+define("DB_PASS", "password");
+define("DB_NAME", "database");
