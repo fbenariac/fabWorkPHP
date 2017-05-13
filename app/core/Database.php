@@ -6,25 +6,25 @@ class Database {
 	private $dbUser = DB_USER;
 	private $dbPass = DB_PASS;
 	private $dbName = DB_NAME;
-
-	private $dbh;
-	private $error;
-	private $stmt;
+  
+	private $dbh    = null;
+	private $error  = null;
+	private $stmt   = null;
 
 	public function __construct() {
     
     // Set DSN
-    $dsn = 'mysql:host=' . $this -> dbHost . ';dbname=' . $this -> dbname;
+    $dsn = 'mysql:host=' . $this -> dbHost . ';dbname=' . $this -> dbName . ';charset=utf8;';
 
     // Set options
-    $options = array(
-    	PDO::ATTR_PERSISTENT => true,
-    	PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION
-    );
+    $options = [
+      PDO::ATTR_PERSISTENT => true,
+      PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION
+    ];
 
     // Create a new PDO instance
     try {
-    	$this -> dbh = new PDO($dsn, $this -> user, $this -> pass, $options);
+    	$this -> dbh = new PDO($dsn, $this -> dbUser, $this -> dbPass, $options);
     } catch(PDOException $e) {
     	$this -> error = $e -> getMessage();
     }
