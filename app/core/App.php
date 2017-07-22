@@ -11,7 +11,7 @@ class App {
 	protected $params     = [];
 
   /**
-   *
+   * App Constructor
    */
 	public function __construct() {
 
@@ -39,7 +39,7 @@ class App {
 	}
 
   /**
-   *
+   * App.parseUrl
    */
 	public function parseUrl() {
 

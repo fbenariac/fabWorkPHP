@@ -1,18 +1,18 @@
 <?php
 
 class Database {
-	
+
 	private $dbHost = DB_HOST;
 	private $dbUser = DB_USER;
 	private $dbPass = DB_PASS;
 	private $dbName = DB_NAME;
-  
+
 	private $dbh    = null;
 	private $error  = null;
 	private $stmt   = null;
 
 	public function __construct() {
-    
+
     // Set DSN
     $dsn = 'mysql:host=' . $this -> dbHost . ';dbname=' . $this -> dbName . ';charset=utf8;';
 
@@ -22,7 +22,7 @@ class Database {
       PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION
     ];
 
-    // Create a new PDO instance
+    // (try to) Create a new PDO instance
     try {
     	$this -> dbh = new PDO($dsn, $this -> dbUser, $this -> dbPass, $options);
     } catch(PDOException $e) {
@@ -36,7 +36,7 @@ class Database {
   }
 
   public function bind($param, $value, $type = null) {
-    
+
     if (is_null($type)) {
 
     	switch (true) {
@@ -44,24 +44,24 @@ class Database {
     		case is_int($value):
     		  $type = PDO::PARAM_INT;
           break;
-        
+
         case is_bool($value):
           $type = PDO::PARAM_BOOL;
           break;
-        
+
         case is_null($value):
           $type = PDO::PARAM_NULL;
           break;
-        
+
         default:
           $type = PDO::PARAM_STR;
 
       }
-    
+
     }
-    
+
     $this -> stmt -> bindValue($param, $value, $type);
-  
+
   }
 
   public function execute() {
