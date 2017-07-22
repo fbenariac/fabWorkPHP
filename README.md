@@ -6,6 +6,14 @@ This README would normally document whatever steps are necessary to get your app
 
 * this is my own tiny php framework. ;-)
 
+### What I need to do now (a.k.a the todo list):
+
+* Write comments and generate docs from them
+* Write test ... (use cucumber style framework ?)
+* Find a packager/installer
+* Write db tools for migrations...
+* ...
+
 ### How do I get set up? ###
 
 * Summary of set up
